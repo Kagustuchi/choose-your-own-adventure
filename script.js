@@ -1,30 +1,37 @@
 const rooms = [
   {
-    id: 0,
+    id: "start",
     title: "Front Room",
-    description: "You are in an office's main room.",
+    description: "You wake up in a office room flooded with, water you feel the swishing of water in your shoes with every step you take.",
     image: "images/front-room.jpeg",
     choices: [
-      { text: "Go to stairs", nextRoom: 1 },
-      { text: "Go to meeting room", nextRoom: 2 },
+      { text: "Go to elevator", nextRoom: "elevator" },
+      { text: "Go to stairs", nextRoom: "stairs" },
     ],
   },
   {
-    id: 1,
-    title: "Stairs",
-    description: "You are at the office's stairwell",
+    id: "elevator",
+    title: "Flooded Elevator",
+    description: "you choose to enter the elevator and find that there are only two buttons one for up and one for down you contemplate on your decision until you finally decide the doors start closing until there is no more light that reaches you.",
+    image: "images/dark elevator.jpeg",
+    choices: [{ text: "Go back to front room", nextRoom: "start" }],
+  },
+  {
+    id: "stairs",
+    title: "The ominous stairs",
+    description: "You are at the stairs, are you sure you want to go down",
     image: "images/stairs.jpeg",
-    choices: [{ text: "Go back to front room", nextRoom: 0 }],
+    choices: [
+      { text: "Go to elevator", nextRoom: "elevator" },
+      { text: "Go to front room", nextRoom: "start" },
+    ],
   },
   {
-    id: 2,
-    title: "Meeting Room",
-    description: "You are at the office's meeting room",
-    image: "images/meeting-room.jpeg",
-    choices: [
-      { text: "Go to stairs", nextRoom: 1 },
-      { text: "Go to front room", nextRoom: 0 },
-    ],
+    id: "flooded",
+    title: "Flooded ",
+    description: "you choose to enter the elevator and find that there are only two buttons one for up and one for down you contemplate on your decision until you finally decide the doors start closing until there is no more light that reaches you.",
+    image: "images/dark elevator.jpeg",
+    choices: [{ text: "Go back to front room", nextRoom: "start" }],
   },
 ];
 
@@ -49,4 +56,4 @@ function goToRoom(roomId) {
   });
 }
 
-goToRoom(0);
+goToRoom("start");
